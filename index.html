@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop with Us - Online Store</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="main-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-3 d-flex align-items-center">
+                    <div class="logo-container">
+                        <img src="img/Thee Designer.PNG" alt="Shop Logo" class="logo-img">
+                        <div class="logo-title">Shop</div>
+                        <img src="https://placehold.co/100x40/ff7e5f/white?text=50%25+OFF" alt="50% Off" class="discount-badge">
+                    </div>
+                </div>
+                
+                <div class="col-md-6 d-flex">
+                    <div class="search-container flex-grow-1">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search for products...">
+                            <button class="btn btn-primary"><i class="fas fa-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 d-flex justify-content-end">
+                    <div class="nav-buttons">
+                        <button class="nav-btn active"  onclick="window.location.href='index.html'"><i class="fas fa-home"></i> Home</button>
+                        <button class="nav-btn cart-btn" onclick="window.location.href='cart.html'">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count">0</span>
+                        </button>
+                        <button class="nav-btn" ><i class="fas fa-user" onclick="window.location.href='php/login.html'"></i> Login</button>
+                    </div>
+                    
+                    <div class="mobile-nav">
+                        <button class="mobile-nav-btn" id="#mobileMenuBtn">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+   
+
+<!--
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+
+    <!-- Brand --
+    <a class="navbar-brand" href="/"><i class="fa-solid fa-plane-departure"></i> flight</a>
+
+     <div class="col-md-6 d-flex>
+                    <div class="search-container flex-grow-1">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search for products...">
+                            <button class="btn btn-primary"><i class="fas fa-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+    <!-- Mobile Toggle Button --
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Menu Items --
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+
+        <li class="nav-item">
+          <a class="nav-link" href="/"><i class="fa-solid fa-house"></i> Home</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/contact"><i class="fa-solid fa-envelope"></i> Contact</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/about"><i class="fa-solid fa-circle-info"></i> About</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/bookflight"><i class="fa-solid fa-plane"></i> Book Flight</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/carhire"><i class="fa-solid fa-car"></i> Car Hire</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/hotel"><i class="fa-solid fa-hotel"></i> Hotel Reservation</a>
+        </li>
+
+      </ul>
+    </div>
+
+  </div>
+</nav>-->
+
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenuBtn">
+        <div class="mobile-menu-header">
+            <img src="https://placehold.co/100x50/4a6de5/white?text=LOGO" alt="Logo" class="logo-img">
+            <button class="close-menu" id="closeMenuBtn">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul class="mobile-menu-items">
+            <li class="mobile-menu-item">
+                <a href="#" class="mobile-menu-link">
+                    <i class="fas fa-home"></i> Home
+                </a>
+            </li>
+            <li class="mobile-menu-item">
+                <a href="#" class="mobile-menu-link cart-btn">
+                    <i class="fas fa-shopping-cart"></i> Cart
+                    <span class="mobile-cart-count">3</span>
+                </a>
+            </li>
+            <li class="mobile-menu-item">
+                <a href="#" class="mobile-menu-link">
+                    <i class="fas fa-user"></i> Login
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h3>Your Shopping Cart</h3>
+                <button class="close-cart" id="closeCartBtn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="cart-items">
+                <div class="cart-item">
+                    <img src="https://placehold.co/80x80/4a6de5/white?text=Item" alt="Item" class="cart-item-img">
+                    <div class="cart-item-details">
+                        <div class="cart-item-name">Casual Men Shirt</div>
+                        <div class="cart-item-price">$29.99</div>
+                    </div>
+                </div>
+                <div class="cart-item">
+                    <img src="https://placehold.co/80x80/ff7e5f/white?text=Item" alt="Item" class="cart-item-img">
+                    <div class="cart-item-details">
+                        <div class="cart-item-name">Summer Women Dress</div>
+                        <div class="cart-item-price">$39.99</div>
+                    </div>
+                </div>
+                <div class="cart-item">
+                    <img src="https://placehold.co/80x80/ffd166/333?text=Item" alt="Item" class="cart-item-img">
+                    <div class="cart-item-details">
+                        <div class="cart-item-name">Genuine Leather Bag</div>
+                        <div class="cart-item-price">$59.99</div>
+                    </div>
+                </div>
+            </div>
+            <div class="cart-total">Total: $129.97</div>
+            <button class="checkout-btn">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- Welcome Text -->
+    <div class="welcome-container">
+        <h2 class="welcome-text" id="welcomeText">Welcome to your online shopping</h2>
+    </div>
+
+    <!-- Banner Section -->
+    <div class="banner-container">
+        <div class="banner-slide active">
+            <img src="img/mendress1.jpg" alt="Men Shoes" class="banner-image">
+            <div class="banner-content">
+                 <h3 class="banner-title">Men Shoes Collection</h3>
+                <p>Discover our premium selection of men's footwear</p>
+            </div>
+        </div>
+        <div class="banner-slide">
+            <img src="img/womanchain1.jpg" alt="Female Wear" class="banner-image">
+            <div class="banner-content">
+                <h3 class="banner-title">Female Fashion</h3>
+                <p>Elegant and stylish clothing for every occasion</p>
+            </div>
+        </div>
+        <div class="banner-slide">
+            <img src="img/womenshoe3.jpg" alt="Accessories" class="banner-image">
+            <div class="banner-content">
+                <h3 class="banner-title">Accessories</h3>
+                <p>Complete your look with our trendy accessories</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Products Section -->
+    <section class="products-section">
+        <div class="container">
+            <h3 class="section-title">Featured Products</h3>
+            <div class="product-grid">
+
+                <!-- Product 1 -->
+                <div class="product-card" id="item-list">
+
+                    <img src="img/mendress1.jpg" alt="Men Shirt" class="product-img">
+
+                    <div class="product-info">
+                        <h4 class="product-title">Casual Men Shirt</h4>
+                        <div class="product-price">$29.99</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <button class="add-btn"><i class="fas fa-plus"></i> Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card" id="item-list">
+                    <img src="img/womenshoe3.jpg" alt="Women Dress" class="product-img">
+                    <div class="product-info">
+                        <h4 class="product-title">Summer Women Dress</h4>
+                        <div class="product-price">$39.99</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <button class="add-btn"><i class="fas fa-plus"></i> Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card" id="item-list">
+                    <img src="img/menshoe1.jpg" alt="Leather Bag" class="product-img">
+                    <div class="product-info">
+                        <h4 class="product-title">Genuine Leather Bag</h4>
+                        <div class="product-price">$59.99</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <button class="add-btn"><i class="fas fa-plus"></i> Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <img src="img/womandress1.jpg" alt="Sneakers" class="product-img">
+                    <div class="product-info">
+                        <h4 class="product-title">Running Sneakers</h4>
+                        <div class="product-price">$79.99</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <button class="add-btn"><i class="fas fa-plus"></i> Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Product 5 -->
+                <div class="product-card">
+                    <img src="img/wear1.jpg" alt="Watch" class="product-img">
+                    <div class="product-info">
+                        <h4 class="product-title">Classic Watch</h4>
+                        <div class="product-price">$89.99</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <button class="add-btn"><i class="fas fa-plus"></i> Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Product 6 -->
+                <div class="product-card">
+                    <img src="img/menshoe2.jpg" alt="Jacket" class="product-img">
+                    <div class="product-info">
+                        <h4 class="product-title">Winter Jacket</h4>
+                        <div class="product-price">$129.99</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <button class="add-btn"><i class="fas fa-plus"></i> Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Product 7 -->
+                <div class="product-card">
+                    <img src="img/womenshoe1.jpg" alt="Scarf" class="product-img">
+                    <div class="product-info">
+                        <h4 class="product-title">Wool Scarf</h4>
+                        <div class="product-price">$24.99</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <button class="add-btn"><i class="fas fa-plus"></i> Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Product 8 -->
+                <div class="product-card">
+                    <img src="img/perfume1.jpg" alt="Sun Glasses" class="product-img">
+                    <div class="product-info">
+                        <h4 class="product-title">Designer Sunglasses</h4>
+                        <div class="product-price">$49.99</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <button class="add-btn"><i class="fas fa-plus"></i> Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Product 9 -->
+                <div class="product-card">
+                    <img src="img/womenhair1.jpg" alt="Backpack" class="product-img">
+                    <div class="product-info">
+                        <h4 class="product-title">Travel Backpack</h4>
+                        <div class="product-price">$69.99</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <button class="add-btn"><i class="fas fa-plus"></i> Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Product 10 -->
+                <div class="product-card">
+                    <img src="img/womenshoe5.jpg" alt="Hat" class="product-img">
+                    <div class="product-info">
+                        <h4 class="product-title">Baseball Cap</h4>
+                        <div class="product-price">$19.99</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <button class="add-btn"><i class="fas fa-plus"></i> Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Product 11 -->
+                <div class="product-card">
+                    <img src="img/acccessaries2.jpg" alt="Belt" class="product-img">
+                    <div class="product-info">
+                        <h4 class="product-title">Leather Belt</h4>
+                        <div class="product-price">$34.99</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <button class="add-btn"><i class="fas fa-plus"></i> Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Product 12 -->
+                <div class="product-card">
+                    <img src="img/womendress3.jpg" alt="Wallet" class="product-img">
+                    <div class="product-info">
+                        <h4 class="product-title">Genuine Leather Wallet</h4>
+                        <div class="product-price">$29.99</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <button class="add-btn"><i class="fas fa-plus"></i> Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Product 13 -->
+                <div class="product-card">
+                    <img src="img/wear2.jpg" alt="Shoes" class="product-img">
+                    <div class="product-info">
+                        <h4 class="product-title">Casual Shoes</h4>
+                        <div class="product-price">$59.99</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <button class="add-btn"><i class="fas fa-plus"></i> Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Product 14 -->
+                <div class="product-card">
+                    <img src="img/womendress2.jpg" alt="Jewelry" class="product-img">
+                    <div class="product-info">
+                        <h4 class="product-title">Silver Necklace</h4>
+                        <div class="product-price">$44.99</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <button class="add-btn"><i class="fas fa-plus"></i> Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Product 15 -->
+                <div class="product-card">
+                    <img src="img/menshoe2.jpg" alt="Scarf" class="product-img">
+                    <div class="product-info">
+                        <h4 class="product-title">Silk Scarf</h4>
+                        <div class="product-price">$39.99</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <button class="add-btn"><i class="fas fa-plus"></i> Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <div class="footer-logo">Shop with us</div>
+                    <p>Your one-stop destination for all fashion needs.</p>
+                </div>
+                
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <h5>Product Policy</h5>
+                    <ul>
+                        <li><a href="#">Return Policy</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Refund Policy</a></li>
+                    </ul>
+                  
+                </div>
+                
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <h5>Terms of Service</h5>
+                    <ul>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">User Agreement</a></li>
+                        <li><a href="#">Cancellation Policy</a></li>
+                        <li><a href="#">Payment Terms</a></li>
+                    </ul>
+
+                </div>
+                
+                <div class="col-md-3">
+                    <h5>Contact Us</h5>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt me-2"></i> 123 Fashion Street, Style City</li>
+                        <li><i class="fas fa-phone me-2"></i> +1 (555) 123-4567</li>
+                        <li><i class="fas fa-envelope me-2"></i> info@shopwithus.com</li>
+                    </ul>
+                    <div class="social-icons mt-4">
+                        <a href="#" class="me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2025, Dokan. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script src="js/javascript.js"></script>
+</body>
+</html>
